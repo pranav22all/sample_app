@@ -1,3 +1,26 @@
 <% provide(:title,'Sign up') %>
 <h1>Sign up</h1>
-<p>This will be a signup page for new users.</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+    	<!-- tells the user what they are doing wrong if User not successfully created -->
+    	<!-- renders from a partial that we have in the shared folder b/c using across many controllers -->
+      <%= render 'shared/error_messages' %> 
+      <!-- Automatically creates the HTML necessary to make text field elements -->
+      <%= f.label :name %>       
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <!-- The password label automatically causes input type = password, so black dots -->
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+       <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+    <!-- Above code creates a form to create a new user account by looping through each field -->
+  </div>
+</div>

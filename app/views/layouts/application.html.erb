@@ -16,8 +16,14 @@
   <body>
   	<%= render 'layouts/header' %>
     <div class="container">
- 		<%= yield %>
- 		<%= render 'layouts/footer' %>
+      <% flash.each do |message_type, message| %>
+        <!-- ERB uses message_type for the color -->
+        <!-- Good example of combining ERB and HTML here -->
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+   		<%= yield %>
+   		<%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html> 
