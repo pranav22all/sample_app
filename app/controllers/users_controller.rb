@@ -14,6 +14,8 @@ class UsersController < ApplicationController
       # Handle a successful save
       # flash = message the appears just once on subseq page (not for reloads)
       # We still need to HTML / CSS and give style instructions to this flash though
+      #log in the user immediately after they create an account
+      log_in @user 
       flash[:success] = "Welcome to the Sample App!"
       # Automatically redirects us to the User URL 
       #Equivalent to using redirect_to user_url(@user)

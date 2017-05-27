@@ -1,2 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+#Fixtures are where we add things to the database for a test 
+#Allows us to run tests on database attributes
+#Note how in a .yml we don't have to use "" for strings, auto assumes everything is reg text
+michael: 
+  name: Michael Example 
+  email: michael@example.com 
+  password_digest: <%= User.digest('password') %>

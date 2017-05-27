@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
-  def hello 
-  	render html: "hello, world!"
-  end
+  # gives all our controllers access to the Sessions helper module
+  include SessionsHelper
 end

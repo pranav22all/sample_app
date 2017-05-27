@@ -7,4 +7,9 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  #The purpose of helper methods is to hold functions that I will call 
+  #in the main test file multiple times 
+  def is_logged_in?
+  	!session[:user_id].nil?
+  end
 end
